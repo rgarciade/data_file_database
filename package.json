@@ -1,0 +1,19 @@
+{
+    "name": "data_file_database",
+    "version": "1.0.0",
+    "description": "manage your own data files",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "keywords": [
+        "database",
+        "data",
+        "base",
+        "file",
+        "manage",
+        "files"
+    ],
+    "author": "rgarciade",
+    "license": "ISC"
+}

@@ -1,6 +1,6 @@
 {
     "name": "data_file_database",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "manage your own data files",
     "main": "index.js",
     "scripts": {

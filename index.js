@@ -1,5 +1,5 @@
 var fs = require('fs');
-const principalDirectory = '../dataFilesDatabase'
+const principalDirectory = '../dataFilesDatabases'
 
 class dataFileDatabase {
     constructor(url, structure) {
@@ -12,12 +12,25 @@ class dataFileDatabase {
     get data() {
         const url = this._url
         return new Promise(function(resolve, reject) {
+            if (!fs.existsSync(`${principalDirectory}/${url}`)) {
+                console.log('aa')
+                fs.writeFile(`${principalDirectory}/${url}`, JSON.stringify([]), function(err) {
+                    if (err) {
+                        reject(err);
+                    }
+                })
+            }
             fs.readFile(`${principalDirectory}/${url}`, function read(err, data) {
                 if (err) {
                     reject(err);
                 }
-                resolve(JSON.parse(data))
+                if (data === undefined) {
+                    resolve([])
+                } else {
+                    resolve(JSON.parse(data))
+                }
             });
+
         })
     }
     _setdata(newDatas) {
@@ -63,7 +76,7 @@ class dataFileDatabase {
                 newElement[element] = (vals[element]) ? vals[element] : null
             }
             return that.data.then(fileData => {
-                let newId = fileData[fileData.length - 1]["_id"] + 1
+                let newId = (fileData.length > 0) ? fileData[fileData.length - 1]["_id"] + 1 : 1
                 fileData.push(Object.assign({ "_id": newId }, newElement))
                 that._setdata(fileData).catch(e => reject(e))
                 resolve(newId)

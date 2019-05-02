@@ -1,5 +1,5 @@
 var fs = require('fs');
-const principalDirectory = '../dataFilesDatabases'
+const principalDirectory = '../dataFileDatabase'
 
 class dataFileDatabase {
     constructor(url, structure) {

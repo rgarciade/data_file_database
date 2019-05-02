@@ -7,7 +7,7 @@ const casas = new dataFileDatabase('dataFile', ["casa", "perro"])
 ```
 - insert **objetTo insert**
 ```sh
-    casas.setVal({ "casa": "verde", "gato": "gg", "perro": "hh" }).then(a => console.log(a))
+    casas.setVal({ "casa": "verde", "perro": "hh" }).then(a => console.log(a))
 ```
 - update **objetTo to find, param, value to find, new values**
 ```sh

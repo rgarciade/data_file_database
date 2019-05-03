@@ -1,5 +1,5 @@
 var fs = require('fs');
-const principalDirectory = '../dataFileDatabase'
+const principalDirectory = './dataFileDatabase'
 
 class dataFileDatabase {
     constructor(url, structure) {
@@ -162,4 +162,4 @@ function findData(fileData, indexToFind, func, valToFind) {
         }
     })
 }
-module.exports = { dataFileDatabase }
+module.exports = dataFileDatabase

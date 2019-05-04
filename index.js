@@ -48,20 +48,7 @@ class dataFileDatabase {
         let that = this
         return new Promise(async function(resolve, reject) {
             return that.data.then(fileData => {
-                let result = fileData.filter(fileDataret => {
-                    if (func == "=") {
-                        return fileDataret[indexToFind] == valToFind
-                    }
-                    if (func == "!=") {
-                        return fileDataret[indexToFind] != valToFind
-                    }
-                    if (func == ">") {
-                        return fileDataret[indexToFind] > valToFind
-                    }
-                    if (func == "<") {
-                        return fileDataret[indexToFind] < valToFind
-                    }
-                })
+                let result = findData(fileData, indexToFind, func, valToFind)
                 resolve(result)
             }).catch(e => reject(e))
         })
@@ -114,7 +101,7 @@ class dataFileDatabase {
                     }
                 }
                 that._setdata(fileData).catch(e => reject(e))
-                resolve({ "upddateadas": idsUpdateds })
+                resolve({ "updateadas": idsUpdateds })
             }).catch(e => reject(e))
         })
     }

@@ -3,27 +3,27 @@
 - include module
 - createNewModel **Model name, estructure []**
 ```sh
-const casas = new dataFileDatabase('dataFile', ["casa", "perro"])
+const homes = new dataFileDatabase('home', ['size', 'floors'])
 ```
 - insert **objetTo insert**
 ```sh
-    casas.setVal({ "casa": "verde", "perro": "hh" }).then(a => console.log(a))
+    homes.setVal({ 'size': 130, 'floors': 1 }).then(result => console.log(result))
 ```
 - update **objetTo to find, param, value to find, new values**
 ```sh
-    casas.updateVals('casa', '=', 'naranja', { "casa": "rosa" }).then(a => console.log(a))
+    homes.updateVals('floors', '=', 1, { 'size': 90 }).then(result => console.log(result))
 ```
 - delete **objetTo to find, param, value to find**
 ```sh
-    casas.deleteteVals('casa', '=', 'roja').then(a => console.log(a)) 
+    homes.deleteteVals('floors', '=', '1').then(result => console.log(result)) 
 ```
 - find **objetTo to find, param, value to find**
 ```sh
-  casas.getVal('casa', '=', 'roja')
+  homes.getVal('floors', '=', '1').then(result => console.log(result))
 ```
 - find all
 ```sh
-casas.data.then(a => console.log(a))
+homes.data.then(results => console.log(results))
 ```
 
 ## cant use in getVal, updateVals, deleteteVals

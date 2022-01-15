@@ -13,17 +13,12 @@ class dataFileDatabase {
         const url = this._url
         return new Promise(function(resolve, reject) {
             if (!fs.existsSync(`${principalDirectory}/${url}`)) {
-                console.log('aa')
                 fs.writeFile(`${principalDirectory}/${url}`, JSON.stringify([]), function(err) {
-                    if (err) {
-                        reject(err);
-                    }
+                    if (err) reject(err);
                 })
             }
             fs.readFile(`${principalDirectory}/${url}`, function read(err, data) {
-                if (err) {
-                    reject(err);
-                }
+                if (err) reject(err);
                 if (data === undefined) {
                     resolve([])
                 } else {
@@ -37,9 +32,7 @@ class dataFileDatabase {
         const url = this._url
         return new Promise(function(resolve, reject) {
             fs.writeFile(`${principalDirectory}/${url}`, JSON.stringify(newDatas), function(err) {
-                if (err) {
-                    reject(err);
-                }
+                if (err) reject(err);
                 resolve('DataUpdated')
             });
         })
